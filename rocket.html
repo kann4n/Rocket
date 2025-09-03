@@ -5,12 +5,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rocket Simulator</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #111;
+      color: #eee;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 1rem;
+      background: #000;
+      border-bottom: 2px solid #333;
+    }
+    header h1 {
+      font-family: 'Courier New', monospace;
+      color: #0ff;
+    }
+
+    /* Main */
+    main {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    /* Canvas */
+    #simulator {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    canvas {
+      background: #000011;
+      border: 2px solid #444;
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 20px rgba(0,255,255,0.4);
+    }
+
+    /* Controls (desktop only) */
+    #controls {
+      flex: 0 1 250px;
+      background: #000;
+      border: 2px solid #444;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    }
+    #controls h2 { margin-bottom: 1rem; color: #ff4444; }
+    .control-item { margin: 0.6rem 0; display: flex; justify-content: space-between; align-items: center; }
+    .control-item input[type="range"] { width: 140px; }
+    .control-item button {
+      background: #222; color: #fff; border: 1px solid #555;
+      padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .control-item button:hover { background: #333; }
+    .control-item button:active { background: #ff4444; }
+    
+    .info-section {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+    }
+    .info-section h3 { color: #0ff; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .info-text { font-size: 0.8rem; color: #aaa; line-height: 1.3; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 0.6rem;
+      background: #000;
+      font-size: 0.85rem;
+      border-top: 2px solid #333;
+    }
+    footer a { color: #0ff; text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header, footer { display: none; }
+      main { padding: 0; }
+      #controls { display: none; } /* hide sidebar */
+      canvas {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <h1>🚀 Rocket Simulator</h1>
+    <h1>Rocket Simulator</h1>
   </header>
 
   <main>
@@ -32,6 +133,25 @@
         <button id="btn-left">⬅ Left</button>
         <button id="btn-right">Right ➡</button>
       </div>
+      
+      <div class="info-section">
+        <h3>🌌 Space Features</h3>
+        <div class="info-text">
+          • Explore multiple planets<br>
+          • Camera follows your rocket<br>
+          • Realistic physics with gravity<br>
+          • Bounded space environment<br>
+          • Beautiful starfield background
+        </div>
+      </div>
+      
+      <div class="info-section">
+        <h3>🎮 Instructions</h3>
+        <div class="info-text">
+          <strong>Desktop:</strong> Arrow keys or buttons to rotate, Space or checkbox for engine<br><br>
+          <strong>Mobile:</strong> Touch controls with throttle slider
+        </div>
+      </div>
     </aside>
   </main>
 
@@ -44,6 +164,7 @@
 
   <!-- Scripts -->
   <script src="rocket.js"></script>
+  <script src="space.js"></script>
   <script src="controls.js"></script>
   <script src="main.js"></script>
 </body>
