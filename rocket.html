@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocket Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🚀 Rocket Simulator</h1>
+  </header>
+
+  <main>
+    <section id="simulator">
+      <canvas id="rocketCanvas"></canvas>
+    </section>
+
+    <aside id="controls">
+      <h2>Controls</h2>
+      <div class="control-item">
+        <label for="engine">Engine</label>
+        <input type="checkbox" id="engine">
+      </div>
+      <div class="control-item">
+        <label for="throttle">Throttle</label>
+        <input type="range" id="throttle" min="0" max="100" value="0">
+      </div>
+      <div class="control-item">
+        <button id="btn-left">⬅ Left</button>
+        <button id="btn-right">Right ➡</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <p>
+      Made with ❤️ for space enthusiasts |
+      <a href="https://github.com/your-username/rocket-simulator" target="_blank">GitHub Repo</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="rocket.js"></script>
+  <script src="controls.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
